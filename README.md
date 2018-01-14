@@ -28,7 +28,7 @@ Then you can test the new service. Run the following command from a terminal as 
     dbus-send --system /at/xundeenergie/notifications at.xundeenergie.notifications.Notification string:"Test Header" string:"Testbody"
 
 ### Run it from python###
-Use the bindings for dbus. You can find a test-implementation in /usr/share/doc/system-notification/notification-example.py
+Use the bindings for dbus. You can find a test-implementation in /usr/share/doc/system-notification/system-notification-example.py
 
 ### Run it from other language###
 If someone is able to write a implementation for perl, C, or other languages, feel free, and share this with my repo.
