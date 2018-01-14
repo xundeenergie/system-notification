@@ -1,0 +1,17 @@
+Package: system-notification
+Version: 0.1.5
+Section: news
+Priority: extra
+Architecture: all
+Maintainer: Jakobus Schürz <jakob@xundeenergie.at>
+Homepage: http://github.com/xundeenergie/system-notification
+Provides: system-notification
+Depends: python3, dbus
+Recommends: 
+Suggests: 
+Description: Send notifications from a system-daemon or cronjob to all desktop-notification-daemons
+ Send via dbus-systembus a message to the graphical-session to each logged in users sessionbus to push notifications to the notification-daemon.
+ This package contains a user-service which listens on systembus and send the notification to the sessionbus. Starting it via xdg-autostart
+ Send Messages to at.xundeenergie.notifications.Notification and /at/xundeenergie/notifications via dbus-send --system or dbus-bindings from your favorit language
+
+
