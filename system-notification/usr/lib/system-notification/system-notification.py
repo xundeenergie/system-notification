@@ -20,8 +20,8 @@ def notify_updates(*args):
     https://developer.gnome.org/notification-spec/
     convert arguments from dbus.String to normal string with str() to avoid
     errors"""
-    notifications.Notify("system notification", 0, icon, "%s" % (str(args[0])), 
-            str(' '.join(args[1:])),
+    notifications.Notify(str(args[0]), 0, icon, "%s" % (str(args[1])), 
+            str(' '.join(args[2:])),
             "", {}, 0)
 
 systembus.add_signal_receiver(notify_updates, 'Notification',

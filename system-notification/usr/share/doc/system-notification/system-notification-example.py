@@ -17,8 +17,7 @@ class desktop_notification:
     def send_signal(self, *args):
         """Send a signal on the bus."""
         signature=''
-        print(' '.join(args))
-        msg = [self.tag, ' '.join(args)]
+        msg = ['TEST', self.tag, ' '.join(args)]
         for i in msg:
             if type(i) is float:
                 signature += 'd' 

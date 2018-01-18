@@ -25,7 +25,7 @@ So you can install this listener-service and the autostart-entry, log out and re
 
 Then you can test the new service. Run the following command from a terminal as you user, as user root, from a test-unit in systemd or even from debug-shell from systemd:
 
-    dbus-send --system /at/xundeenergie/notifications at.xundeenergie.notifications.Notification string:"Test Header" string:"Testbody"
+    dbus-send --system /at/xundeenergie/notifications at.xundeenergie.notifications.Notification string:"TEST" string:"Test Header" string:"Testbody"
 
 ### Run it from python###
 Use the bindings for dbus. You can find a test-implementation in /usr/share/doc/system-notification/system-notification-example.py
