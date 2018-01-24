@@ -3,7 +3,7 @@ import dbus
 import datetime
 
 class desktop_notification:
-    def __init__(self, tag, signal_name='Notification_critical'):
+    def __init__(self, tag, signal_name='Notification'):
         self.tag          = tag
         self.dbus_path    = "/at/xundeenergie/notifications"
         self.dbus_iface   = "at.xundeenergie.notifications"
@@ -28,20 +28,9 @@ class desktop_notification:
             else:
                 signature += 'v'
 
-        msg_dev = dict()
-        msg_dev['sender'] = "mkbackup-dev"
-        msg_dev['msgheader'] = "%s-backup" % (self.tag)
-        msg_dev['msgbody'] = """am %s 
-\rum %s Uhr abgeschlossen.
-\rVolumes: 
-\r%s """ % (self.date, self.time, '\n'.join(args))
-        #msg_dev['urgency'] = '2'
-        msg_dev['expiration_timeout'] = '-1'
-        print('A',msg_dev, *msg_dev, type(msg_dev))
         message = dbus.lowlevel.SignalMessage(self.dbus_path, self.dbus_iface, self.signal_name)
-        print('B',message.guess_signature(msg_dev))
-        #message.append(*msg_dev, signature=message.guess_signature(*msg_dev))
-        message.append(msg_dev)
+        message.append(signature=signature, *msg)
+        #message.append(*msg)
         self.bus.send_message(message)
 
 if __name__ == '__main__':
