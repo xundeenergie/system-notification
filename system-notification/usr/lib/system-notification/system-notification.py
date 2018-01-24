@@ -40,8 +40,9 @@ class SignalReceiver:
         if args[0].has_key('actions'): par['actions'] = str(args[0]['actions']) 
         if args[0].has_key('hints'): par['hints']= dict(args[0]['hints']) 
         if args[0].has_key('expiration_timeout'): par['exptimeout'] = int(args[0]['expiration_timeout']) 
-        if 'hints' not in vars() or 'hints' not in globals(): hints = dict()
-        hints['urgency'] = int(self.urgency)
+        if 'hints' not in vars() or 'hints' not in globals(): par['hints'] = dict()
+        par['hints']['urgency'] = int(self.urgency)
+        print('PAR',par)
 
         self.__send_notification( **par)
 
