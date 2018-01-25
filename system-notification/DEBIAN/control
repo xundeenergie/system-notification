@@ -1,12 +1,12 @@
 Package: system-notification
-Version: 0.1.15
+Version: 0.1.16
 Section: news
 Priority: extra
 Architecture: all
 Maintainer: Jakobus Schürz <jakob@xundeenergie.at>
 Homepage: http://github.com/xundeenergie/system-notification
 Provides: system-notification
-Depends: python3, dbus
+Depends: python3, dbus, python3-dbus
 Recommends: 
 Suggests: 
 Description: Send notifications from a system-daemon or cronjob to all desktop-notification-daemons
