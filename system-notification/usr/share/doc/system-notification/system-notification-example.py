@@ -19,10 +19,11 @@ class desktop_notification:
         msg_dev = dict()
         msg_dev['sender'] = "mkbackup-dev"
         msg_dev['msgheader'] = "%s-backup" % (self.tag)
-        msg_dev['msgbody'] = """am %s 
-\rum %s Uhr abgeschlossen.
-\rVolumes: 
-\r%s """ % (self.date, self.time, '\n'.join(args))
+        msg_dev['msgbody'] = """Message Body 
+\rNotification is sent to socket %s.
+\r 
+\rSent on %s %s
+\r%s""" % (self.signal_name, self.date, self.time, '\n'.join(args))
         #msg_dev['urgency'] = '2'
         msg_dev['expiration_timeout'] = '-1'
         print('A',msg_dev, *msg_dev, type(msg_dev))
