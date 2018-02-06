@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=at.xundeenergie.notifications.Notification;at.xundeenergie.Notification
+Exec=/usr/lib/system-notifications/system-notifications.dev.py
+
