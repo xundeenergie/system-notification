@@ -34,5 +34,7 @@ Advanced_Notification = Emitter(dbus.SystemBus(),
 
 #Simple_Notification.low('M')
 Advanced_Notification.normal(
-        {'sender': 'emitter1.py', 'header': 'Testmessage', 'body': 'Test Body'})
+        {'sender': 'emitter1.py', 'header': 'Testmessage', 'body': 'Test Body',
+            'action':'openpath,Backups oeffnen,backup'},
+        signature=dbus.Signature('sv'))
 
