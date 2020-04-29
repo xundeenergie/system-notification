@@ -1,0 +1,10 @@
+[Unit]
+Description=dbus system-notifications to usersession
+
+[Service]
+ExecStart=/usr/local/lib/system-notification/system-notification.py
+Restart=on-failure
+RestartSec=1s
+
+[Install]
+WantedBy=default.target
