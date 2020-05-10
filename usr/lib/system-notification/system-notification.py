@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 #import dbus, dbus.glib, dbus.service
 import dbus, dbus.service
@@ -17,7 +17,8 @@ DBusGMainLoop(set_as_default=True)
 
 import datetime
 import notify2 as Notify
-Notify.init('Notifications', mainloop='glib')
+#Notify.init('Notifications', mainloop='glib')
+Notify.init('Notifications')
 
 import sys
 from os.path import expanduser
@@ -50,8 +51,8 @@ class Handler():
 
     def pathopen(self, *args, **kwargs):
         print('callback open path')
-        print(('ARGS',args))
-        print(('KWARGS',kwargs))
+        #print(('ARGS',args))
+        #print(('KWARGS',kwargs))
 
         if len(args) > 2:
             import subprocess
@@ -97,8 +98,8 @@ class Handler():
         par['exptimeout'] = -1
         par['icon'] = '/usr/share/icons/gnome/48x48/categories/preferences-system.png'
         par['urgency'] = 'URGENCY_' + str(kwargs['urgency']).upper()
-        print(args)
-        print("ARGS: ", args[0])
+        #print(args)
+        #print("ARGS: ", args[0])
         if 'sender' in args[0]: par['sender'] = str(args[0]['sender'])
         if 'msgid' in args[0]: par['msgid'] =   int(args[0]['msgid'])
         if 'icon' in args[0]: par['icon']=      str(args[0]['icon'])
@@ -109,12 +110,15 @@ class Handler():
         if 'expiration_timeout' in args[0]: par['exptimeout'] = int(args[0]['expiration_timeout'])
         if 'hints' not in vars() or 'hints' not in globals(): par['hints'] = dict()
 
+        print("PAR",par)
+
         #Notify.init(par['sender'],mainloop='glib')
         server_capabilities = Notify.get_server_caps()
         self.notification = Notify.Notification(par['header'], message=par['body'],
                 icon=par['icon'])
         i=0
         ap=dict()
+        print("Server_capabilities", server_capabilities)
         if ('actions' in server_capabilities):
             for a in par['actions']:
                 if i == 0: ap[i]=uuid.uuid4().hex
